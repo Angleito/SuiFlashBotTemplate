@@ -8,7 +8,8 @@
     "start": "node dist/main.js",
     "dev": "ts-node src/main.ts",
     "test": "jest",
-    "navi:flashloan": "ts-node src/examples/simpleNaviFlashloan.ts"
+    "navi:flashloan": "ts-node src/examples/simpleNaviFlashloan.ts",
+    "suilend:flashloan": "ts-node src/examples/simpleSuilendFlashloan.ts"
   },
   "keywords": [
     "blockchain",
