@@ -1,10 +1,8 @@
-# Flash Loan Arbitrage Bot (Demo Version)
+# Sui Flashloan Examples
 
-This repository contains a mock implementation of a Flash Loan Arbitrage Bot for educational and demonstration purposes. It simulates the interaction with Sui blockchain, DEXes, and arbitrage detection/execution without actually connecting to real services or using real funds.
+This repository contains professional examples of flash loan implementations on the Sui blockchain. It demonstrates integration with various protocols and showcases real-world use cases for flash loans in decentralized finance (DeFi) applications.
 
-## ⚠️ Important Note
-
-This is a **SIMULATED DEMO VERSION** and does not contain proprietary code or connect to real blockchain networks. All functionality is mocked to demonstrate the concept of a flash loan arbitrage bot without revealing sensitive implementation details or making real transactions.
+The examples are designed to be educational and to demonstrate technical proficiency with Sui blockchain development, particularly focusing on flash loan mechanics and DeFi integrations.
 
 ## What is Flash Loan Arbitrage?
 
@@ -19,22 +17,33 @@ This requires no initial capital, making it accessible to anyone with the techni
 
 ## Features
 
-This mock implementation demonstrates:
+This repository demonstrates:
 
-- Connecting to mock blockchain RPC nodes
-- Simulating token swaps and flash loans
-- Detecting simulated arbitrage opportunities across DEXes
-- Simulating arbitrage executions
-- In-memory database for storing tokens, pools, and opportunities
+- Integration with real Sui blockchain protocols
+- Implementation of flash loans with various DeFi protocols
+- Professional TypeScript code structure and patterns
+- Comprehensive error handling and logging
+- Unit and integration testing
+
+## Included Examples
+
+### 1. Navi Protocol Flash Loan
+
+A complete implementation of a flash loan using the Navi Protocol. This example demonstrates:
+
+- Connecting to the Navi Protocol
+- Executing a flash loan transaction
+- Handling the borrowed funds
+- Repaying the loan in the same transaction
 
 ## Project Structure
 
 ```
 src/
-├── config/            # Configuration for DEXes and tokens
-├── database/          # Mock database implementation
-├── executor/          # Transaction executors and DEX integrations
-├── orchestrator/      # Arbitrage opportunity detection and execution
+├── config/            # Configuration for protocols and tokens
+├── examples/          # Example implementations
+│   └── simpleNaviFlashloan.ts  # Navi Protocol flash loan example
+├── tests/             # Test files for the examples
 ├── types/             # TypeScript type definitions
 ├── utils/             # Utility functions and helpers
 └── main.ts            # Application entry point
@@ -51,8 +60,8 @@ src/
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/flashloanbot-mock.git
-   cd flashloanbot-mock
+   git clone https://github.com/yourusername/sui-flashloan-examples.git
+   cd sui-flashloan-examples
    ```
 
 2. Install dependencies:
@@ -65,39 +74,78 @@ src/
    npm run build
    ```
 
-### Running the Demo
+4. Set up your environment variables by copying the example file:
+   ```
+   cp .env.example .env
+   ```
+   Then edit the `.env` file to add your Sui wallet mnemonic and other configuration options.
 
-Start the arbitrage bot in demo mode:
+### Running the Examples
+
+#### Navi Protocol Flash Loan Example
+
+Run the Navi Protocol flash loan example:
 
 ```
-npm start
+npm run navi:flashloan
 ```
 
-By default, the demo will run for 5 minutes, simulating scanning for and executing arbitrage opportunities between mocked DEXes.
+This will execute a complete flash loan cycle using the Navi Protocol on the Sui blockchain.
+
+### Testing
+
+Run the test suite to verify the examples:
+
+```
+npm test
+```
 
 ### Environment Variables
 
-You can customize the demo behavior with these environment variables:
+The examples use the following environment variables:
 
-- `DEMO_RUN_TIME_MINS`: How long to run the demo in minutes (default: 5)
-- `DEMO_EXECUTE_SWAP`: Set to "true" to execute simulated swaps (default: false)
-- `DEBUG`: Set to "true" for more detailed logging
+- `SUI_NETWORK`: The Sui network to connect to (`mainnet`, `testnet`, or `devnet`)
+- `SUI_RPC_URL`: The RPC URL for the Sui network
+- `SUI_MNEMONIC`: Your wallet mnemonic (12 or 24 words)
+- `GAS_BUDGET`: Gas budget for transactions (default: 50000000)
+- `NODE_ENV`: Set to `development` for additional logging
 
-Example:
+Example `.env` file:
 ```
-DEBUG=true DEMO_RUN_TIME_MINS=10 DEMO_EXECUTE_SWAP=true npm start
+SUI_NETWORK=testnet
+SUI_RPC_URL=https://fullnode.testnet.sui.io:443
+SUI_MNEMONIC=your twelve word mnemonic phrase goes here
+GAS_BUDGET=50000000
+NODE_ENV=development
 ```
+
+## About Navi Protocol
+
+[Navi Protocol](https://naviprotocol.io/) is a leading lending protocol on the Sui blockchain that provides flash loan functionality. Flash loans allow users to borrow assets without collateral, as long as the loan is repaid within the same transaction.
+
+Key features of Navi Protocol:
+
+- Uncollateralized flash loans
+- Support for multiple tokens (USDC, USDT, WETH, etc.)
+- Low fees
+- Simple API for developers
+
+For more information, visit the [Navi Protocol documentation](https://naviprotocol.gitbook.io/).
 
 ## Disclaimer
 
-This is purely a demonstration project. The code is simplified and does not represent a production-ready system. In a real arbitrage bot:
+This repository contains examples for educational purposes. While the code demonstrates real integrations with blockchain protocols, it should not be used in production without proper review and risk management:
 
-1. You would need proper risk management
-2. Extensive testing would be required
-3. Significant optimizations would be necessary
-4. Real RPC nodes and wallet connections would be used
-5. Actual flash loan providers would be integrated
+1. Always implement proper error handling and recovery mechanisms
+2. Conduct thorough testing on testnet before mainnet deployment
+3. Implement monitoring and alerting systems
+4. Consider gas optimization for production environments
+5. Secure sensitive information like private keys and mnemonics
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.

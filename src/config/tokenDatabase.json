@@ -1,0 +1,62 @@
+{
+  "pools": {
+    "navi": {
+      "pools": {
+        "USDC_native": {
+          "type": "0x5d4b302506645c37ff133b98c4b50a5ae14841659738d6d733d59d0d217a93bf::coin::COIN",
+          "address": "0x14d8b80d3d3d7dab5a658e696ff994489b6b6a6f01f146099e9a435c04794b03",
+          "reserveData": "0x14d8b80d3d3d7dab5a658e696ff994489b6b6a6f01f146099e9a435c04794b03",
+          "assetId": "1",
+          "fee": "0",
+          "rewardFundId": "0x0"
+        },
+        "USDT_native": {
+          "type": "0xc060006111016b8a020ad5b33834984a437aaa7d3c74c18e09a95d48aceab08c::coin::COIN",
+          "address": "0x5eb2dfcdd1b15c8d3a8f6858a89b1e1e74d1cb8f8d6c6b82f97c8c6e8bca5c0d",
+          "reserveData": "0x5eb2dfcdd1b15c8d3a8f6858a89b1e1e74d1cb8f8d6c6b82f97c8c6e8bca5c0d",
+          "assetId": "2",
+          "fee": "0",
+          "rewardFundId": "0x0"
+        },
+        "WETH_native": {
+          "type": "0xaf8cd5edc19c4512f4259f0bee101a40d41ebed738ade5874359610ef8eeced5::coin::COIN",
+          "address": "0x7a6c9e7162cc6e5a3a657d3e5f9ee1b8eb1c8e2d0f47c75b9ebb29c45cfac2e5",
+          "reserveData": "0x7a6c9e7162cc6e5a3a657d3e5f9ee1b8eb1c8e2d0f47c75b9ebb29c45cfac2e5",
+          "assetId": "3",
+          "fee": "0",
+          "rewardFundId": "0x0"
+        }
+      }
+    }
+  },
+  "tokens": {
+    "SUI": {
+      "addresses": [
+        {
+          "address": "0x2::sui::SUI"
+        }
+      ]
+    },
+    "USDC": {
+      "addresses": [
+        {
+          "address": "0x5d4b302506645c37ff133b98c4b50a5ae14841659738d6d733d59d0d217a93bf::coin::COIN"
+        }
+      ]
+    },
+    "USDT": {
+      "addresses": [
+        {
+          "address": "0xc060006111016b8a020ad5b33834984a437aaa7d3c74c18e09a95d48aceab08c::coin::COIN"
+        }
+      ]
+    },
+    "WETH": {
+      "addresses": [
+        {
+          "address": "0xaf8cd5edc19c4512f4259f0bee101a40d41ebed738ade5874359610ef8eeced5::coin::COIN"
+        }
+      ]
+    }
+  }
+}
