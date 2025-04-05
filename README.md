@@ -134,7 +134,9 @@ The examples use the following environment variables:
 - `NODE_ENV`: Set to `development` for additional logging
 
 **Navi Protocol Configuration:**
-- `NAVI_POOL_ID`: The ID of the Navi Protocol pool to use for flashloans
+- `NAVI_PACKAGE_ID`: The ID of the Navi Protocol package
+- `NAVI_USDC_POOL_ID`: The ID of the Navi Protocol USDC pool to use for flashloans
+- `NAVI_USDC_COIN_TYPE`: The coin type for USDC in the Navi Protocol
 
 **SuiLend Protocol Configuration:**
 - `SUILEND_LENDING_MARKET_ID`: The ID of the SuiLend lending market
@@ -150,7 +152,9 @@ GAS_BUDGET=50000000
 NODE_ENV=development
 
 # Navi Protocol Configuration
-NAVI_POOL_ID=0x14d8b80d3d3d7dab5a658e696ff994489b6b6a6f01f146099e9a435c04794b03
+NAVI_PACKAGE_ID=0x81c408448d0d57b3e371ea94de1d40bf852784d3e225de1e74acab3e8395c18f
+NAVI_USDC_POOL_ID=0x14d8b80d3d3d7dab5a658e696ff994489b6b6a6f01f146099e9a435c04794b03
+NAVI_USDC_COIN_TYPE=0x5d4b302506645c37ff133b98c4b50a5ae14841659738d6d733d59d0d217a93bf::coin::COIN
 
 # SuiLend Protocol Configuration
 SUILEND_LENDING_MARKET_ID=0xf4ff123a3730fa718761b05ec454d3eefc032ef0528627a0552916194c815904

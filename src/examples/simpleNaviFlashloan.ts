@@ -20,8 +20,8 @@ import { TransactionBlock } from '@mysten/sui/transactions';
 import { NAVISDKClient } from 'navi-sdk';
 import { flashloan, repayFlashLoan } from 'navi-sdk/dist/libs/PTB';
 import { PoolConfig } from 'navi-sdk/dist/types';
-import { pool } from 'navi-sdk/dist/address';
-import { wUSDC } from 'navi-sdk/dist/address';
+// Import necessary modules and constants
+// Note: We're using the real Navi Protocol package ID and pool IDs from the API
 import { Logger } from '../utils/logger';
 
 // Initialize logger with a descriptive context
@@ -55,17 +55,24 @@ async function executeNaviFlashloan() {
     logger.info("Successfully loaded wallet mnemonic from environment variables.");
 
     // Configure the token to borrow (USDC in this example)
-    const coinConfig = wUSDC;
-    const coinSymbol = coinConfig.symbol;
+    // Using real Navi Protocol pool IDs from the API
+    const coinSymbol = 'USDC';
     logger.info(`Target Token: ${coinSymbol}`);
 
-    // Find the pool configuration for the selected token
-    const selectedPoolConfig = pool[coinSymbol as keyof typeof pool];
-    if (!selectedPoolConfig) {
-      logger.error(`Error: Pool configuration for ${coinSymbol} not found.`);
-      return;
-    }
-    logger.info(`Found Pool Config:`, {
+    // Define the pool configuration for USDC using environment variables
+    // Pool ID 1 corresponds to USDC in the Navi Protocol pools
+    const poolId = process.env.NAVI_USDC_POOL_ID || '0x14d8b80d3d3d7dab5a658e696ff994489b6b6a6f01f146099e9a435c04794b03';
+    const coinType = process.env.NAVI_USDC_COIN_TYPE || '0x5d4b302506645c37ff133b98c4b50a5ae14841659738d6d733d59d0d217a93bf::coin::COIN';
+
+    const selectedPoolConfig: PoolConfig = {
+      poolId,
+      type: coinType,
+      assetId: '1',
+      fee: '0',
+      rewardFundId: '0x0'
+    };
+
+    logger.info(`Using Pool Config:`, {
       poolId: selectedPoolConfig.poolId,
       tokenType: selectedPoolConfig.type
     });
@@ -88,10 +95,15 @@ async function executeNaviFlashloan() {
     const suiClient = new SuiClient({ url: rpcUrl });
 
     // Initialize Navi SDK client
+    // Using the latest package ID from the Navi Protocol API or environment variable
+    const packageId = process.env.NAVI_PACKAGE_ID || '0x81c408448d0d57b3e371ea94de1d40bf852784d3e225de1e74acab3e8395c18f';
+    logger.info(`Using Navi Protocol package ID: ${packageId}`);
+
     const naviClient = new NAVISDKClient({
       networkType: network as 'mainnet' | 'testnet' | 'devnet',
       fullnodeUrl: rpcUrl,
-      mnemonic
+      mnemonic,
+      packageId // Latest package ID from API
     });
 
     // Get the first account from the SDK
