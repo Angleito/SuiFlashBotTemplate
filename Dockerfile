@@ -25,7 +25,7 @@ COPY src ./src/
 RUN rm -rf node_modules && npm cache clean --force && npm install
 
 # Build TypeScript source
-RUN npx tsc
+RUN npm install typescript && npx tsc
 
 # Stage 3: Create the final production image
 FROM node:18-alpine AS final
@@ -66,4 +66,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s \
   CMD node /app/dist/utils/health-check.js || exit 1
 
 # Define the command to run the application
-CMD ["node", "dist/examples/simulatedArbitrage.js"]
+CMD ["node", "dist/index.js"]

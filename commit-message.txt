@@ -1,0 +1,16 @@
+Add remote deployment templates and scripts
+
+This commit adds template files for deploying the application to a remote server:
+
+- Added template scripts for SSH setup and remote deployment
+- Added a Docker Compose template for remote deployment
+- Added a setup script to help users create their deployment scripts
+- Updated .gitignore to exclude real deployment scripts with credentials
+- Modified Dockerfile to fix TypeScript compilation issues
+- Updated docker-compose.yml to expose health check port
+
+These templates provide a secure way to deploy the application without
+committing sensitive information like server addresses, usernames, or SSH keys.
+Users can create their own deployment scripts from these templates by running
+the setup-deployment-scripts.sh script and then updating the configuration
+variables with their actual values.

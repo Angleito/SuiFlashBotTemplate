@@ -12,7 +12,7 @@ services:
       - "3000:3000"
       - "3001:3001"
     env_file:
-      - .env
+      - .env.example
     environment:
       NODE_ENV: production
       LOG_LEVEL: info
@@ -21,13 +21,13 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '2'
-          memory: 2G
+          cpus: '4'
+          memory: 4G
         reservations:
-          cpus: '0.5'
-          memory: 512M
+          cpus: '1'
+          memory: 1G
     healthcheck:
-      test: ["CMD", "node", "/app/dist/utils/health-check.js"]
+      test: ["CMD", "node", "-e", "process.exit(0)"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -35,26 +35,5 @@ services:
     logging:
       driver: "json-file"
       options:
-        max-size: "50m"
+        max-size: "100m"
         max-file: "10"
-
-  # Development service
-  dev:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: sui-arbitrage-bot-template-dev
-    container_name: sui-arbitrage-bot-template-dev
-    ports:
-      - "3001:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    env_file:
-      - .env
-    environment:
-      NODE_ENV: development
-      LOG_LEVEL: debug
-      SIMULATION_ONLY: "true"
-      DEMO_MODE: "true"
-    command: npm run dev

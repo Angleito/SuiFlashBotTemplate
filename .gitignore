@@ -39,4 +39,31 @@ coverage/
 .npm
 
 # Optional eslint cache
-.eslintcache 
+.eslintcache
+
+# Backup files
+*.bak
+*.orig
+
+# Private keys and secrets
+*.pem
+*.key
+*.cert
+*.p12
+
+# SSH and deployment scripts with real credentials
+setup-ssh-key.sh
+deploy-to-remote.sh
+deploy-to-remote-compose.sh
+remote-build-run.sh
+check-remote-status.sh
+stop-remote.sh
+REMOTE-DEPLOYMENT.md
+
+# SSH keys and configurations
+.ssh/
+ssh_config
+known_hosts
+
+# Docker deployment files with real credentials
+docker-compose.remote.yml
