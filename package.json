@@ -9,7 +9,15 @@
     "dev": "ts-node src/main.ts",
     "test": "jest",
     "navi:flashloan": "ts-node src/examples/simpleNaviFlashloan.ts",
-    "suilend:flashloan": "ts-node src/examples/simpleSuilendFlashloan.ts"
+    "suilend:flashloan": "ts-node src/examples/simpleSuilendFlashloan.ts",
+    "simulate:arbitrage": "ts-node src/examples/simulatedArbitrage.ts",
+    "docker:build": "docker-compose build",
+    "docker:start": "docker-compose up -d arbitrage-bot",
+    "docker:stop": "docker-compose down",
+    "docker:logs": "docker-compose logs -f arbitrage-bot",
+    "docker:dev": "docker-compose up dev",
+    "health-check": "node dist/utils/health-check.js",
+    "production": "./run-production.sh start"
   },
   "keywords": [
     "blockchain",
@@ -46,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/sui-flashloan-examples.git"
+    "url": "https://github.com/Angleito/SuiFlashBotTemplate.git"
   },
   "private": true
 }

@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+
+# Node.js
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build output
+dist
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+
+# IDE files
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+coverage
+.nyc_output
+
+# Temporary files
+.tmp
+.temp
+*.tmp
+*.temp
+
+# Nix build outputs
+result*
